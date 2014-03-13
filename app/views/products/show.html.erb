@@ -1,0 +1,11 @@
+<h1>Show page for products</h1>
+	<article>
+		<p><%= @product.title %></p>
+		<p><%= @product.price %></p>
+		<p><%= @product.description %></p>
+		<p><%= @product.image_url %></p>
+	</article>
+
+	<%= link_to "Index", products_path  %>
+	<%= link_to "Edit", edit_product_path(@product)  %>
+	<%= link_to "Delete", product_path(@product), method: :delete, data: {confirm: "Are you sure??"} %>
