@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cart # show </h1>
+
+<table>
+<tr>
+	<td>Product</td>
+	<td>Quantity</td>
+	<td>Subtotal</td>
+</tr>
+
+
+	<% @cart.line_items.each do |line| %>
+	<tr>
+	<td><%= line.product.title %> </td>
+	<td> &times; <%= line.quantity %></td>
+	<td><%= line.subtotal %></td>
+	</tr>
+	<% end %>
+
+</table>
+	<span><p>Total Price: <%= number_to_currency(@cart.total_price)  %></p></span>
+
+<%= link_to 'Back to store', store_path %> |
+<%= button_to 'Delete Cart', cart_path(@cart), method: :delete, data: {confirm: "Are you sure?"} %>

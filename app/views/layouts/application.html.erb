@@ -8,7 +8,16 @@
 </head>
 <body>
 
+<% flash.each do |key, value| %>
+  <%= content_tag(:p, value, :class => "flash #{key}") %>
+<% end %>
+
+<div id="side" style="float: right; width: 150px;">
+	<p>Cart Total price: <%= @cart.total_price  %></p>			
+</div>
+
 <%= yield %>
 
+<%= debug(params) if Rails.env.development? %>
 </body>
 </html>

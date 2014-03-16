@@ -3,7 +3,7 @@
 <% @products.each do |p| %>
 	<ul>
 		<li> <%= p.title %></li>
-		<li> <%= p.price %></li>
+		<li> <%= number_to_currency(p.price) %></li>
 		<li> <%= p.description %></li>
 		<li> <%= p.image_url %></li>
 	</ul> 

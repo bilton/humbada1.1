@@ -1,7 +1,7 @@
 <h1>Show page for products</h1>
 	<article>
 		<p><%= @product.title %></p>
-		<p><%= @product.price %></p>
+		<p><%= number_to_currency(@product.price) %></p>
 		<p><%= @product.description %></p>
 		<p><%= @product.image_url %></p>
 	</article>

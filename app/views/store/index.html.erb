@@ -1,0 +1,17 @@
+<h1>Store#index</h1>
+
+<h1>Welcome to the Humbada Chilli Store!</h1>
+
+<% @products.each do |p| %>
+	<div>
+		<%= image_tag(p.image_url) %>
+		<h3><%= p.title %></h3>
+		<%= p.description %>
+		<div>
+			<span><%= p.price %></span>
+			<%= button_to 'Add to Cart', line_items_path(product_id: p) %>
+		</div>
+	</div> 
+<% end %>
+
+<h3>Session counter: <%= session[:counter] %></h3>
