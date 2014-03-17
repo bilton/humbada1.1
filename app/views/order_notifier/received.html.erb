@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+
+<p>OrderNotifier#received --> find me in app/views/order_notifier/received.html.erb</p>
+
+<h1>Thanks <%= @order.name %>!  We have received your payment :D </h1>
+
+<h2>Your order: </h2>
+<% @order.line_items.each do |item| %>
+<ul>
+  <li>Product title: <%= item.product.title %></li>
+  <li>Product price: <%= item.product.price %></li> 
+   <li>Quantity: <%= item.quantity %></li>
+   <li>Subtotal <%= item.subtotal %> </li>
+</ul>
+<% end %>
+
+<p>Total sum: <%= @order.line_items.to_a.sum {|i| i.subtotal} %></p>
+
+<H2>Your delivery address: </H2>
+<p><%= @order.address %></p>
+
+<h2>Thanks for buying Humbada Chilli and have a great day!</h2>
+ 
+  </body>
+</html>
