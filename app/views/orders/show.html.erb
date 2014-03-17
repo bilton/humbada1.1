@@ -1,0 +1,18 @@
+<h1>Order show page - redirected after placing order</h1>
+
+
+<li> <%= @order.name %></li>
+<li> <%= @order.address %></li>
+<li> <%= @order.email %></li>
+<li> <%= @order.pay_type %></li>
+<%= @order.line_items %>
+
+<h2>Cart id: <%= @cart.id %></h2>
+<h2>line_item attributes... </h2>
+<% @cart.line_items.each do |item| %>
+	Cart Id:<%= item.cart_id %> </br>
+	Product Id: <%= item.product_id %> </br>
+	Order Id: <%= item.order_id %> </br>
+	What product: <%= item.product.title %> </br>
+	Quantity: <%= item.quantity %> </br> </br>
+<% end %>

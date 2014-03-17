@@ -1,0 +1,14 @@
+<h1>Orders index page - will change to admin only</h1>
+
+<% @orders.each do |o| %>
+	<ul>
+		<li><%= o.name %></li>
+		<li><%= o.address %></li>
+		<li><%= o.email %></li>
+		<li><%= o.pay_type %></li>
+
+		<%= o %>
+
+
+	</ul>
+<% end %>

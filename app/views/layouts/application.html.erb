@@ -12,9 +12,9 @@
   <%= content_tag(:p, value, :class => "flash #{key}") %>
 <% end %>
 
-<div id="side" style="float: right; width: 150px;">
-	<p>Cart Total price: <%= @cart.total_price  %></p>			
-</div>
+<div>Cart total price: <%= @cart.total_price %> </div>
+
+
 
 <%= yield %>
 
