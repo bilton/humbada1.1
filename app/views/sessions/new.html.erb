@@ -1,0 +1,23 @@
+<header id="content-header">
+	<h1>Sign in for users (only admins)!</h1>
+
+</header>
+
+
+<%= form_tag(session_path) do %>
+	<fieldset>
+		<ol>
+			<li class="required">
+				<%= label_tag :email %>
+				<%= email_field_tag :email, nil, required: true %>
+			</li>
+			<li class="required">
+				<%= label_tag :password %>
+				<%= password_field_tag :password, nil, required: true %>
+			</li>
+		</ol>
+		<p>
+			<%= submit_tag "Sign In" %>
+		</p>
+	</fieldset>
+<% end %>

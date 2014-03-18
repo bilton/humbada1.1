@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-	before_action :set_cart, only: [:new, :create, :show]
+	before_action :require_signin, only: [:index, :show]
+	before_action :set_cart, only: [:new, :create]
 
 	def index
 		@orders = Order.order("created_at asc")
