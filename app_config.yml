@@ -1,0 +1,13 @@
+development:
+  paypal_email: bilton2@paypal.com
+  paypal_secret: secret
+  paypal_cert_id: HTVRWVBT9HLUU
+  paypal_url: "https://www.sandbox.paypal.com/cgi-bin/webscr"
+
+test:
+
+production:
+  paypal_email: foo@example.com
+  paypal_secret: humbadasecret
+  paypal_cert_id: KLHZSK326HEDS
+  paypal_url: "https://www.paypal.com/cgi-bin/webscr"

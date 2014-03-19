@@ -43,4 +43,6 @@ config.action_mailer.smtp_settings = {
   password:             'hellman12',
   authentication:       'plain',
   enable_starttls_auto: true  }
+
+
 end

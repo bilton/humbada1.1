@@ -8,7 +8,7 @@ class OrderNotifier < ActionMailer::Base
   #
 def received(order)
 @order = order
-mail to: order.email, subject: 'Pragmatic Store Order Confirmation', bcc: 'native_bilton@hotmail.com'
+mail to: order.email, subject: 'Humbada Chilli Store purchase confirmation', bcc: 'native_bilton@hotmail.com'
 end
 
   # Subject can be set in your I18n file at config/locales/en.yml

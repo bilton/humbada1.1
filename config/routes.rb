@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :payment_notifications
+
   resource :session
   get "/signin" => "sessions#new"
 

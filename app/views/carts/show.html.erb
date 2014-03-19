@@ -22,5 +22,13 @@
 	<span><p>Total Price: <%= number_to_currency(@cart.total_price)  %></p></span>
 
 <%= link_to 'Back to store', store_path %> |
-<%= button_to 'Checkout', new_order_path, method: :get %>
+
+<%= form_tag APP_CONFIG['paypal_url'] do %>
+  <%= hidden_field_tag :cmd, "_s-xclick" %>
+  <%= hidden_field_tag :encrypted, @cart.paypal_encrypted(store_url, payment_notifications_url(:secret => APP_CONFIG['paypal_secret'])) %>
+  <%= submit_tag "Checkout with paypal" %>
+<% end %>
+
+
+<%= button_to 'Old Checkout', new_order_path, method: :get %>
 <%= button_to 'Delete Cart', cart_path(@cart), method: :delete, data: {confirm: "Are you sure?"} %>
