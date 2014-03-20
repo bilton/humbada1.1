@@ -16,6 +16,7 @@ def create
 		redirect_to users_path, notice: "Account of #{@user.email} has been created!"
 	else
 		render :new
+	end
 end
 
 def edit

@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  before_action :remove_line_item_if_quantity_zero
   rescue_from ActiveRecord::RecordNotFound, with: :invalid_cart
 
   # GET /carts
@@ -75,5 +76,15 @@ class CartsController < ApplicationController
     def invalid_cart
       logger.error "Attempt to access invalid cart #{params[:id]}"
       redirect_to store_url, alert: "Invalid cart!"
+    end
+
+    def remove_line_item_if_quantity_zero
+      @cart = Cart.find(params[:id])
+      @cart.line_items.each do |line| 
+        if line.quantity == 0
+          line.destroy
+          redirect_to @cart
+        end
+      end
     end
 end

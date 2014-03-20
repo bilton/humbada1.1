@@ -37,8 +37,8 @@ class ProductsController < ApplicationController
 
 	def destroy
 		@product = Product.find(params[:id])
-		@product.destroy
-		redirect_to products_path, alert: "Movie successfully deleted!"
+		@product.destroy!
+		redirect_to store_url, alert: "Movie successfully deleted!"
 	end
 
 	def who_bought

@@ -1,3 +1,6 @@
+<% if false %>
+
+--------------original code -------------
 <h1>Show page for products</h1>
 	<article>
 		<p><%= @product.title %></p>
@@ -6,6 +9,62 @@
 		<p><%= @product.image_url %></p>
 	</article>
 
-	<%= link_to "Index", products_path  %>
-	<%= link_to "Edit", edit_product_path(@product)  %>
-	<%= link_to "Delete", product_path(@product), method: :delete, data: {confirm: "Are you sure??"} %>
+<% end %>
+
+
+	<!-- Body -->
+	
+	<div class="row">
+		
+		<div class="span12">
+		
+			<h1><%= @product.title %></h1>
+		
+		</div>
+		
+	</div>
+
+	<!-- Product Detail -->
+	
+	<div class="row">
+	
+		<div class="span8">
+			<%= image_tag "product-large.jpg" %>
+			
+		</div>
+		
+		<div class="span4">
+		
+			<div class="add-basket-box clearfix">
+				<%= image_tag "product-1.jpg" %>				
+				
+				<p><%= @product.title %><br /><span><%= number_to_currency(@product.price) %></span></p>
+
+				<%= button_to line_items_path(product_id: @product), class: "btn btn-addcart btn-primary", method: :post do %>
+					<span class="entypo cart"></span>
+				<% end %>	
+
+			
+			</div>
+			
+			<p><%= @product.description %></p>
+			
+			<h3>Stock</h3>
+			
+			<p>This item is in stock and ready to ship!</p>
+
+			<h3>Delivery</h3>
+			
+			<p>Free Delivery is available on this item.</p>
+			<p>Usually dispatched within 24 hours.</p>
+
+			<% if current_user %>
+				<h1><%= link_to "Edit", edit_product_path(@product), class: 'btn btn-primary'  %></h1>
+					
+	        	<h1><%= link_to 'Delete', @product, class: 'btn btn-primary',
+	                    method: :delete, data: { confirm: 'Are you sure?' } %></h1>
+			<% end %>
+		</div>
+	
+	</div>	
+

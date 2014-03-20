@@ -1,6 +1,65 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Cart # show </h1>
+	<!-- Basket -->
+	
+	<div class="row">
+	
+		<div class="span12">
+			
+			<table class="basket-table">
+				<thead>
+					<tr>
+						<th colspan="2">Item</th>
+						<th>Qty</th>
+						<th>Price</th>
+						<th colspan="2">Total</th>
+					</tr>
+				</thead>
+				<tbody>
+				<% @cart.line_items.each do |line| %>
+						<tr>
+							<td class='image'><%= link_to image_tag(line.product.image_url), line.product %> </td>
+							<td class="title"><%= link_to line.product.title, line.product %></td>	
+							<td class="qty"><%= link_to '-', decrease_quantity_path(line_id: line) %></td>
+							<td class="qty"><%= line.quantity  %></td>
+							<td class="qty"><%= link_to '+', increase_quantity_path(line_id: line) %></td>
+							<td class='price'><%= number_to_currency(line.product.price) %></td>
+							<td class='total'><%= number_to_currency(line.subtotal) %></td>
+							<td class='remove'>
+								<%= link_to line, method: :delete do %>
+									<span class="entypo trash"></span>
+								<% end %>
+							</td>
+						</tr>
+
+				<% end %>
+
+				</tbody>
+			</table>
+			
+			<div class="clearfix">
+			
+			<p class="basket-total"><span>Total:</span> <%= number_to_currency(@cart.total_price) %></p>
+			
+			</div>
+			
+			<p class="actions">
+				<%= link_to "Continue Shopping", store_url, class: "btn btn-blank" %>
+				<%= link_to 'Delete Cart', cart_path(@cart),class: "btn btn-blank", method: :delete, data: {confirm: "Are you sure?"} %>
+
+				<%= form_tag APP_CONFIG['paypal_url'] do %>
+				  <%= hidden_field_tag :cmd, "_s-xclick" %>
+				  <%= hidden_field_tag :encrypted, @cart.paypal_encrypted(store_url, payment_notifications_url(:secret => APP_CONFIG['paypal_secret'])) %>
+				  <%= submit_tag "Checkout with paypal", class: "btn btn-primary" %>
+				<% end %>
+			</p>
+			
+		</div>
+	
+	</div>
+
+<% if false %>
+-----------original code----------------------
 
 <table>
 <tr>
@@ -26,9 +85,11 @@
 <%= form_tag APP_CONFIG['paypal_url'] do %>
   <%= hidden_field_tag :cmd, "_s-xclick" %>
   <%= hidden_field_tag :encrypted, @cart.paypal_encrypted(store_url, payment_notifications_url(:secret => APP_CONFIG['paypal_secret'])) %>
-  <%= submit_tag "Checkout with paypal" %>
+  <%= submit_tag "Checkout with paypal", class: "btn btn-primary" %>
 <% end %>
 
 
 <%= button_to 'Old Checkout', new_order_path, method: :get %>
 <%= button_to 'Delete Cart', cart_path(@cart), method: :delete, data: {confirm: "Are you sure?"} %>
+
+<% end %>

@@ -6,21 +6,25 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+
+<body class = "container">
+
+<%= render "/layouts/header" %>
 
 <% flash.each do |key, value| %>
   <%= content_tag(:p, value, :class => "flash #{key}") %>
 <% end %>
 
-<%-# Cart total price: <%= @cart.total_price -%>
+<%# Cart total price: <%= @cart.total_price %>
 
 <% if current_user %>
 <h2>You are currently signed in as admin, with email: <%= current_user.email %></h2>
 <%= button_to "Sign Out", session_path, method: :delete, data: {confirm: "Are you sure you wanna sign out?"} %>
-
 <% end %>
 
 <%= yield %>
+
+<%= render "/layouts/footer" %>
 
 <%= debug(params) if Rails.env.development? %>
 </body>
