@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   resource :session
   get "/signin" => "sessions#new"
 
-  get "increase_quantity" => "line_items#increase_quantity"
-  get "decrease_quantity" => "line_items#decrease_quantity"
+  # get "increase_quantity" => "line_items#increase_quantity"
+  # get "decrease_quantity" => "line_items#decrease_quantity"
+  post "change_quantity" => "line_items#change_quantity"
+  get "story" => "store#story"
+  get "contact" => "store#contact"
 
   resources :users
 

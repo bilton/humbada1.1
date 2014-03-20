@@ -1,5 +1,5 @@
 class LineItemsController < ApplicationController
-	before_action :set_cart, only: [:create, :increase_quantity, :decrease_quantity, :destroy]
+	before_action :set_cart, only: [:create, :destroy, :change_quantity]
 
 	def create
 		@product = Product.find(params[:product_id])
@@ -22,30 +22,40 @@ class LineItemsController < ApplicationController
 	def destroy
 		@line_item = LineItem.find(params[:id])
 		@line_item.destroy
-		redirect_to @cart, alert: 'line_item deleted'
+		redirect_to @cart, alert: 'Line item deleted'
 	end
 
-	def increase_quantity
-		@line_item = LineItem.find(params[:line_id])
-		current = @line_item.quantity 
-		current += 1
-		@line_item.quantity = current
+	# def increase_quantity
+	# 	@line_item = LineItem.find(params[:line_id])
+	# 	current = @line_item.quantity 
+	# 	current += 1
+	# 	@line_item.quantity = current
+
+	# 	if @line_item.save
+	# 	 	redirect_to @cart, notice: "Quantity increased "
+	# 	# else
+	# 	# 	redirect_to @cart, alert: "Failed to increase"	
+	# 	end		
+	# end
+
+	# def decrease_quantity
+	# 	@line_item = LineItem.find(params[:line_id])
+	# 	current = @line_item.quantity 
+	# 	current -= 1
+	# 	@line_item.quantity = current		
+
+	# 	if @line_item.save
+	# 	 	redirect_to @cart, notice: "Quantity decreased "
+	# 	 end
+	# end
+
+	def change_quantity
+		@line_item = LineItem.find(params[:line_ref])
+		@line_item.quantity = params[:quantity]
+		@line_item.save
 
 		if @line_item.save
-		 	redirect_to @cart, notice: "Quantity increased "
-		# else
-		# 	redirect_to @cart, alert: "Failed to increase"	
-		end		
-	end
-
-	def decrease_quantity
-		@line_item = LineItem.find(params[:line_id])
-		current = @line_item.quantity 
-		current -= 1
-		@line_item.quantity = current		
-
-		if @line_item.save
-		 	redirect_to @cart, notice: "Quantity decreased "
-		 end
+		 	redirect_to @cart, notice: "Quantity changed "
+		end
 	end
 end

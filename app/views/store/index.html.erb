@@ -1,21 +1,16 @@
 
 
-	<div class='row'>
+	<div class='row' id='products_row'>
 		<% @products.each do |p| %>
 			<div class="span4 product-listing">
 				<p class="title"><%= link_to p.title, p %>  </p>
 				<%= link_to(image_tag("product-1.jpg"), p) %>
 				<p class="price">
 					<%= number_to_currency(p.price) %>
-					<%= button_to line_items_path(product_id: p), class: "btn btn-addcart btn-primary", method: :post do %>
-						<span class="entypo cart"></span>
-					<% end %>	
-
-					<%= link_to product_path(p), class: "btn btn-view btn-grey" do %>
-						<span class="entypo search"></span>
-					<% end %>
-						
-					</p>		
+					<%= button_to line_items_path(product_id: p), class: "btn btn-addcart btn-primary", id: 'storefront_cart_button', method: :post do %>
+						 Buy
+						<% end %>						
+				</p>		
 			</div>
 		<% end %>
 	</div>
@@ -25,6 +20,14 @@
 
 
 <% if false %>
+
+					<%= button_to line_items_path(product_id: p), class: "btn btn-addcart btn-primary", id: 'storefront_cart_button', method: :post do %>
+						<span class="entypo cart"></span>
+					<% end %>	
+
+					<%= link_to product_path(p), class: "btn btn-view btn-grey", id: 'search_button' do %>
+						<span class="entypo search"></span>
+					<% end %>					
 
 -----------The original code here ---------------------
 <% @products.each do |p| %>

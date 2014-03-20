@@ -7,7 +7,7 @@
 		
 			<ul class="top-nav">
                 <li><a href="delivery.html">Delivery Information</a></li>
-				<li><a href="contact.html">Contact</a></li>
+				<li><%= link_to 'Contact', contact_path %></li>
 			</ul>
 		
 		</div>
@@ -44,8 +44,10 @@
 				<div class="span2 offset2 mini-basket">
 					
 					<p class="mini-basket-title">
-						<a href="basket.html">
-						<span class="entypo cart"></span> Basket</a>
+						<%= link_to @cart do %>
+							<span class="entypo cart"></span> 
+							Basket
+						<% end %>
 					</p>
 					
 					<div class="row">
@@ -53,14 +55,14 @@
 						<div class="span1">
 							<p class="mini-basket-summary">
 								Price<br />
-								<span>&dollar;0.00</span>
+								<span><%= number_to_currency(@cart.total_price) %></span>
 							</p>
 						</div>
 					
 						<div class="span1">
 							<p class="mini-basket-summary">
 								Items<br />
-								<span>0</span>
+								<span><%= @cart.line_items.count %></span>
 							</p>
 						</div>
 					
@@ -83,7 +85,7 @@
 			<ul class="main-nav clearfix">
 			
 				<li class="active"><a href="index.html">Shop</a></li>
-				<li><a href="story.html">Our Story</a></li>
+				<li><%= link_to "Our Story", story_path %></li>
 				<li><a href="contact.html">Contact</a></li>
 
 			</ul>

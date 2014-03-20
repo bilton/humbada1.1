@@ -12,10 +12,80 @@
  *
  *= require entypo
  *= require bootstrap
- *= require 686tees
  *= require_tree .
  *= require_self
  */
+
+/*--------------------------------
+	flashes
+---------------------------------*/
+
+.flash{
+	width: 75%;
+	height: 3em;
+	line-height: 3em;
+	text-align: center;
+	font-size: 1.5em;
+	margin: 0 auto;
+	vertical-align: middle;
+	border: 1px solid #E6E6E6;
+	font-family: "Bree Serif", "sans-serif";
+}
+
+.notice{
+	background-color: rgba(162,255,104,0.3);
+	color: green;
+}
+
+.alert{
+	background-color: rgba(250,230,224,1);
+	color: rgba(202,45,66,0.5);
+}
+
+/*--------------------------------
+	Fixing the storefront cart up
+---------------------------------*/
+
+#products_row{
+	border-bottom: 
+}
+
+.product-listing{
+	padding: 2em 0 2em 0;
+	border-bottom: 1px solid #E6E6E6;
+}
+
+#storefront_cart_button{
+	width: 25%;
+	padding: 0.75em;
+	margin-left: 9em;
+}
+
+/*--------------------------------
+	Fixing the cart buttons up
+---------------------------------*/
+
+#quantity_input{
+	width: 16px;
+}
+
+#quantity_button {
+	width: 25px;
+}
+
+.basket-table form{
+	padding-top: 15px;
+}
+
+#paypal_button{
+	float: right;
+	width: 30%;
+	vertical-align: middle;
+	text-align: center;
+	padding: 1.2em 0 1.2em 0;
+	font-size: 2.5em;
+	font-family: "Bree Serif", "sans-serif";
+}
 
 
 
@@ -246,7 +316,7 @@ h5 {
 
 .product-listing .title {
 	font-family: "Bree Serif";
-	font-size: 20px;
+	font-size: 2em;
 }
 
 .product-listing .title a {
@@ -271,11 +341,11 @@ h5 {
 
 .product-listing .price {
 	font-family: "Bree Serif";
-	font-size: 16px;
-	text-align: right;
-	border-bottom: 1px solid #E6E6E6;
-	padding-bottom: 20px;
-	margin-bottom: 20px;
+	font-size: 1.5em;
+	text-align: left;
+/*	border-bottom: 1px solid #E6E6E6;*/
+	padding: 0.5em 0 0px;
+	margin-bottom: 0px;
 }
 
 .product-listing .btn {
