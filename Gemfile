@@ -5,6 +5,8 @@ ruby '2.0.0'
 group :test, :development do
   gem "minitest"
   gem "rspec-rails", "2.14.1"
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3', '1.3.9'  
 end
 
 group :test do
@@ -17,8 +19,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0.rc1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.1'
 # Use Uglifier as compressor for JavaScript assets
