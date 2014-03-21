@@ -15,17 +15,16 @@
 					</tr>
 				</thead>
 				<tbody>
+
+			<%= form_tag(change_quantity_path) do %>	
 				<% @cart.line_items.each do |line| %>
 						<tr>
 							<td class='image'><%= link_to image_tag(line.product.image_url), line.product %> </td>
 							<td class="title"><%= link_to line.product.title, line.product %></td>	
 
-							<td class="qty"><%= form_tag(change_quantity_path) do %>
-								<%= text_field_tag :quantity, line.quantity, id: "quantity_input" %>
-								<%= hidden_field_tag(:line_ref, line.id) %>
-								<span><%= submit_tag "#", class: 'btn-primary', id: 'quantity_button' %></span>
-								
-								<% end %>
+							<td class="qty">
+								<%= text_field_tag "quantity_#{line.id}", line.quantity, id: "quantity_input" %>
+
 							</td>								
 
 
@@ -39,19 +38,20 @@
 						</tr>
 
 				<% end %>
-
 				</tbody>
 			</table>
-			
+	
 			<div class="clearfix">
 				<p class="basket-total"><span>Total:</span> <%= number_to_currency(@cart.total_price + 3) %></p>
-				<p class="basket-total"><span>Cost of shipping:</span>$3</p>
+				<p class="basket-total"><span>Cost of shipping:</span> $3</p>
 
 			</div>
 
 				<p class="actions">
 					<%= link_to "Continue Shopping", store_url, class: "btn btn-blank" %>
 					<%= link_to 'Delete Cart', cart_path(@cart),class: "btn btn-blank", method: :delete, data: {confirm: "Are you sure?"} %>
+					<span><%= submit_tag "Update Cart", class: 'btn-primary', id: 'quantity_button' %></span>		
+					<% end %>		
 				</p>
 						
 		</div>

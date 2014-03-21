@@ -50,12 +50,14 @@ class LineItemsController < ApplicationController
 	# end
 
 	def change_quantity
-		@line_item = LineItem.find(params[:line_ref])
-		@line_item.quantity = params[:quantity]
-		@line_item.save
 
-		if @line_item.save
-		 	redirect_to @cart, notice: "Quantity changed "
+		@cart.line_items.each do |line|
+			line.quantity = params["quantity_#{line.id}"] 
+			line.save
 		end
+
+		redirect_to @cart, notice: "Item quantity changed"
+
+
 	end
 end

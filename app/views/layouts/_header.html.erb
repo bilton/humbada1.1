@@ -62,7 +62,7 @@
 						<div class="span1">
 							<p class="mini-basket-summary">
 								Items<br />
-								<span><%= @cart.line_items.count %></span>
+								<span><%= @cart.total_item_count %></span>
 							</p>
 						</div>
 					
@@ -84,7 +84,7 @@
 		
 			<ul class="main-nav clearfix">
 			
-				<li class="active"><a href="index.html">Shop</a></li>
+				<li><%= link_to "Shop", store_url %></li>
 				<li><%= link_to "Our Story", story_path %></li>
 				<li><a href="contact.html">Contact</a></li>
 

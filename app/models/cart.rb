@@ -36,4 +36,15 @@ end
 	def total_price
 		line_items.to_a.sum {|item| item.subtotal } 
 	end
+
+def total_item_count
+    count = 0
+    line_items.each do |line|
+      count += line.quantity
+    end
+    return count
+end
+
+
+
 end
