@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 group :test, :development do
   gem "minitest"
   gem "rspec-rails", "2.14.1"
@@ -7,6 +9,10 @@ end
 
 group :test do
   gem "capybara", "2.2.1"
+end
+
+group :production do
+  gem 'pg'
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

@@ -19,6 +19,20 @@ class LineItemsController < ApplicationController
 		end
 	end
 
+	def change_quantity
+
+		@cart.line_items.each do |line|
+			line.quantity = params["quantity_#{line.id}"] 
+			line.save
+		end
+
+		respond_to do |format|
+			format.html { redirect_to @cart, notice: "Item quantity changed" }
+			format.js 
+		end
+		
+	end	
+
 	def destroy
 		@line_item = LineItem.find(params[:id])
 		@line_item.destroy
@@ -49,15 +63,5 @@ class LineItemsController < ApplicationController
 	# 	 end
 	# end
 
-	def change_quantity
 
-		@cart.line_items.each do |line|
-			line.quantity = params["quantity_#{line.id}"] 
-			line.save
-		end
-
-		redirect_to @cart, notice: "Item quantity changed"
-
-
-	end
 end
