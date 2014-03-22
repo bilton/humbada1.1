@@ -15,29 +15,24 @@
 				<h2>Contact Us</h2>
 				
 				<p>If you would like to send us an email please fill out the form below.</p>
-				
-				<form action="checkout-2.html" method="post">
-				
-					<p>
-						<label for="field-name">Name <span class="mand">*</span></label>
-						<input type="text" id="field-name" name="field-name" />
-					</p>
-				
-					<p>
-						<label for="field-email">Email <span class="mand">*</span></label>
-						<input type="text" id="field-email" name="field-email" />
-					</p>
-				
-					<p>
-						<label for="field-message">Message <span class="mand">*</span></label>
-						<textarea id="field-message" name="field-message"></textarea>
-					</p>
-				
-					<p class="buttons">
-						<button class="btn btn-primary" type="submit">Send</button>
-					</p>
-				
-				</form>
+
+				<%= form_tag(contact_forms_path) do %>
+				<p>
+					<%= label_tag :name %>
+					<%= text_field_tag :name, nil, required: true  %>
+				</p>
+				<p>
+					<%= label_tag :email %>
+					<%= email_field_tag :email, nil, required: true  %>
+				</p>
+				<p>
+					<%= label_tag :message %>
+					<%= text_area_tag :message, nil, required: true  %>
+				</p>
+				<p class="buttons">
+					<%= submit_tag "Submit message", class: "btn btn-primary" %>
+				</p>
+				<% end %>
 				
 			</div>
 			

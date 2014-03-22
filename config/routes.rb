@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   # get "decrease_quantity" => "line_items#decrease_quantity"
   post "change_quantity" => "line_items#change_quantity"
   get "story" => "store#story"
-  get "contact" => "store#contact"
+
+  resource :contact_forms
+
+  # get "contact_view" => "store#contact_view"
+  # post "contact" => "store#contact"
 
   resources :users
 
