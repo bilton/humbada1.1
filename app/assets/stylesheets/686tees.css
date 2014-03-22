@@ -319,7 +319,7 @@ h5 {
 .product-listing .image:hover {
 	-moz-opacity: 0.70;
 	opacity: 0.70;
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=70);
+/*	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=70);*/
 }
 
 .product-listing .price {

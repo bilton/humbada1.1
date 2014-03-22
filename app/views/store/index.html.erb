@@ -4,7 +4,7 @@
 		<% @products.each do |p| %>
 			<div class="span4 product-listing">
 				<p class="title"><%= link_to p.title, p %>  </p>
-				<%= link_to(image_tag("product-1.jpg"), p) %>
+				<%= link_to(image_tag("product-1.jpg"), p, class: "image") %>
 				<p class="price">
 					<%= number_to_currency(p.price) %>
 					<%= button_to line_items_path(product_id: p), class: "btn btn-addcart btn-primary", id: 'storefront_cart_button', method: :post do %>
