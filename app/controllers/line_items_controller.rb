@@ -13,7 +13,7 @@ class LineItemsController < ApplicationController
 		@line_item = current_item
 
 		if @line_item.save
-			redirect_to @cart, notice: "Line Item was successfully created!"
+			redirect_to @cart, notice: "Item added to cart!"
 		else
 			render :new
 		end

@@ -82,9 +82,13 @@ class CartsController < ApplicationController
       @cart = Cart.find(params[:id])
       @cart.line_items.each do |line| 
         if line.quantity == 0
-          line.destroy
-          redirect_to @cart
+          line.destroy        #this triggers the destroy method which will redirect to @cart
         end
       end
-    end
+
+      if @cart.line_items.empty?
+          @cart.destroy
+      end 
+    end     
+
 end

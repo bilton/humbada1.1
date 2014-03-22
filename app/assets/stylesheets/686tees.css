@@ -47,10 +47,11 @@
 	width: 16px;
 }
 
+
 #quantity_button {
-	width: 21%;
+	width: 30%;
 	padding: 0.2em 0 0.2em 0;
-	margin: 0 0 0 3.9em;
+	margin: 0 0 0 70%;
 	font-family: "Bree Serif", "sans-serif";
 	font-size: 1.3em;
 }
@@ -61,13 +62,18 @@
 }
 
 #paypal_button{
-	float: right;
+	width: 60%;
+	margin: 5% 0 0 40%;
+	padding: 0.7em 0 0.7em 0;
+	font-family: "Bree Serif", "sans-serif";
+	font-size: 2em;
+/*	float: right;
 	width: 30%;
 	vertical-align: middle;
 	text-align: center;
 	padding: 1.0em 0 1.0em 0;
 	font-size: 2.5em;
-	font-family: "Bree Serif", "sans-serif";
+	font-family: "Bree Serif", "sans-serif";*/
 }
 
 
