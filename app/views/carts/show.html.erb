@@ -32,7 +32,7 @@
 							<td class='total'><%= number_to_currency(line.subtotal) %></td>
 							<td class='remove'>
 								<%= link_to line, method: :delete do %>
-									<span class="entypo trash"></span>
+									<span><%= image_tag("small-trash.jpg") %></span>
 								<% end %>
 							</td>
 						</tr>
